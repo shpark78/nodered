@@ -1,0 +1,199 @@
+[
+    {
+        "id": "844613c5f77cc25e",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "50ee36ab09631870",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "1935ebf150c8a5d8",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "2890f4ac97cb8aa3",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "1935ebf150c8a5d8",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "a75f194d05381118",
+        "type": "function",
+        "z": "844613c5f77cc25e",
+        "name": "function 1",
+        "func": "if(msg.payload ==0)\n    msg.payload = \"영번을 선택했습니다\";\nelse if(msg.payload ==1)\n    msg.payload = \"일번을 선택했습니다\";\nelse if(msg.payload ==2)\n    msg.payload = \"이번을 선택했습니다\";\nelse if(msg.payload ==3)\n    msg.payload = \"삼번을 선택했습니다\";\nelse if(msg.payload ==4)\n    msg.payload = \"사번을 선택했습니다\";\nelse \n    msg.payload = \"기타를 선택했습니다\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 280,
+        "wires": [
+            [
+                "15311e7c4cc893e5",
+                "fae1d494e0771138"
+            ]
+        ]
+    },
+    {
+        "id": "15311e7c4cc893e5",
+        "type": "debug",
+        "z": "844613c5f77cc25e",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "fae1d494e0771138",
+        "type": "ui_audio",
+        "z": "844613c5f77cc25e",
+        "name": "",
+        "group": "2890f4ac97cb8aa3",
+        "voice": "",
+        "always": "",
+        "x": 660,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "52549e5a86a83f00",
+        "type": "ui_numeric",
+        "z": "844613c5f77cc25e",
+        "name": "",
+        "label": "numeric",
+        "tooltip": "",
+        "group": "2890f4ac97cb8aa3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 220,
+        "y": 280,
+        "wires": [
+            [
+                "a75f194d05381118"
+            ]
+        ]
+    }
+]

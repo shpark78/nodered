@@ -1,0 +1,322 @@
+[
+    {
+        "id": "e1761d693769bdcb",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c3f0ec12.832b2",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "2ada035f.b6a36c",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "2ada035f.b6a36c",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "33ffa66f.d8031a",
+        "type": "debug",
+        "z": "e1761d693769bdcb",
+        "name": "",
+        "active": true,
+        "complete": false,
+        "x": 680.9999885559082,
+        "y": 59.999999046325684,
+        "wires": []
+    },
+    {
+        "id": "50ac8878.b5f278",
+        "type": "inject",
+        "z": "e1761d693769bdcb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 310.99999237060547,
+        "y": 60,
+        "wires": [
+            [
+                "dc8b9188.40756"
+            ]
+        ]
+    },
+    {
+        "id": "dc8b9188.40756",
+        "type": "function",
+        "z": "e1761d693769bdcb",
+        "name": "Format timestamp",
+        "func": "// Create a Date object from the payload\nvar date = new Date(msg.payload);\n// Change the payload to be a formatted Date string\nmsg.payload = date.toString();\n// Return the message so it can be sent on\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 490,
+        "y": 60,
+        "wires": [
+            [
+                "33ffa66f.d8031a"
+            ]
+        ]
+    },
+    {
+        "id": "ec44a52e.c9c3c8",
+        "type": "ui_date_picker",
+        "z": "e1761d693769bdcb",
+        "name": "",
+        "label": "date",
+        "group": "c3f0ec12.832b2",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "",
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [
+                "bb5a4480.164708"
+            ]
+        ]
+    },
+    {
+        "id": "14c650a9.36854f",
+        "type": "debug",
+        "z": "e1761d693769bdcb",
+        "name": "output",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 784.0173072814941,
+        "y": 261.0104112625122,
+        "wires": []
+    },
+    {
+        "id": "415e00e2.c1552",
+        "type": "function",
+        "z": "e1761d693769bdcb",
+        "name": "timeConvert",
+        "func": "msg.payload = global.get(\"date\") ||  Math.round(+new Date());\nvar hour=global.get(\"hour\") || 0;\nvar minute=global.get(\"minute\") || 0;\n//if ( !msg.payload ) msg.payload = Math.round(+new Date());\n\nvar dt = new Date(msg.payload);\nvar msg = {\n\t'month':\tdt.getMonth() + 1,\n\t'day':\t\tdt.getDate(),\n\t'year':\t\tdt.getFullYear(),\n\t'hours':\thour,\n\t'mins':\t\tminute,\n\t'msecs':\t0\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 631.0173072814941,
+        "y": 261.0103979110718,
+        "wires": [
+            [
+                "14c650a9.36854f"
+            ]
+        ]
+    },
+    {
+        "id": "990a20f5.6e3a5",
+        "type": "ui_numeric",
+        "z": "e1761d693769bdcb",
+        "name": "",
+        "label": "시",
+        "tooltip": "",
+        "group": "c3f0ec12.832b2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "23",
+        "step": 1,
+        "className": "",
+        "x": 270,
+        "y": 300,
+        "wires": [
+            [
+                "24b817e0.74da28"
+            ]
+        ]
+    },
+    {
+        "id": "9e3d9231.264ef",
+        "type": "ui_numeric",
+        "z": "e1761d693769bdcb",
+        "name": "",
+        "label": "분",
+        "tooltip": "",
+        "group": "c3f0ec12.832b2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "59",
+        "step": 1,
+        "className": "",
+        "x": 270,
+        "y": 340,
+        "wires": [
+            [
+                "7f291815.3824f8"
+            ]
+        ]
+    },
+    {
+        "id": "bb5a4480.164708",
+        "type": "function",
+        "z": "e1761d693769bdcb",
+        "name": "global",
+        "func": "global.set(\"date\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 411.06941986083984,
+        "y": 260.5277781486511,
+        "wires": [
+            [
+                "415e00e2.c1552"
+            ]
+        ]
+    },
+    {
+        "id": "24b817e0.74da28",
+        "type": "function",
+        "z": "e1761d693769bdcb",
+        "name": "global",
+        "func": "global.set(\"hour\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "415e00e2.c1552"
+            ]
+        ]
+    },
+    {
+        "id": "7f291815.3824f8",
+        "type": "function",
+        "z": "e1761d693769bdcb",
+        "name": "global",
+        "func": "global.set(\"minute\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 410,
+        "y": 340,
+        "wires": [
+            [
+                "415e00e2.c1552"
+            ]
+        ]
+    },
+    {
+        "id": "2a5ca558.13befa",
+        "type": "inject",
+        "z": "e1761d693769bdcb",
+        "name": "Force",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 295.01734161376953,
+        "y": 204.01041507720947,
+        "wires": [
+            [
+                "7a0a241f.528edc"
+            ]
+        ]
+    },
+    {
+        "id": "70807e94.c8683",
+        "type": "debug",
+        "z": "e1761d693769bdcb",
+        "name": "output",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 838.0173110961914,
+        "y": 132.0104160308838,
+        "wires": []
+    },
+    {
+        "id": "5ec2cbf.5bc7e34",
+        "type": "function",
+        "z": "e1761d693769bdcb",
+        "name": "timeConvert",
+        "func": "if ( !msg.timestamp ) msg.timestamp = Math.round(+new Date());\n\nvar dt = new Date(msg.timestamp);\nvar msg = {\n\t'month':\tdt.getMonth() + 1,\n\t'day':\t\tdt.getDate(),\n\t'year':\t\tdt.getFullYear(),\n\t'hours':\tdt.getHours(),\n\t'mins':\t\tdt.getMinutes(),\n\t'msecs':\tdt.getMilliseconds()\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 691.0173416137695,
+        "y": 132.01041507720947,
+        "wires": [
+            [
+                "70807e94.c8683"
+            ]
+        ]
+    },
+    {
+        "id": "7a0a241f.528edc",
+        "type": "function",
+        "z": "e1761d693769bdcb",
+        "name": "set timestamp",
+        "func": "msg.timestamp=1537843118153;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 479.01734161376953,
+        "y": 204.01041507720947,
+        "wires": [
+            [
+                "5ec2cbf.5bc7e34"
+            ]
+        ]
+    },
+    {
+        "id": "7863f60f.931e88",
+        "type": "inject",
+        "z": "e1761d693769bdcb",
+        "name": "Force",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 295.01734161376953,
+        "y": 132.01041507720947,
+        "wires": [
+            [
+                "5ec2cbf.5bc7e34"
+            ]
+        ]
+    }
+]

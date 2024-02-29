@@ -1,0 +1,113 @@
+[
+    {
+        "id": "c4cd018c2c3028c9",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9f0f450e0fc9a302",
+        "type": "inject",
+        "z": "c4cd018c2c3028c9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "a",
+        "payloadType": "global",
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "1171c9e0430a00b6"
+            ]
+        ]
+    },
+    {
+        "id": "1171c9e0430a00b6",
+        "type": "debug",
+        "z": "c4cd018c2c3028c9",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5893e158a330b4b8",
+        "type": "comment",
+        "z": "c4cd018c2c3028c9",
+        "name": "입력형식",
+        "info": "버퍼 [2,3,4] 배열\nglobal 전역변수",
+        "x": 140,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "2af6e9b0d85faf4e",
+        "type": "inject",
+        "z": "c4cd018c2c3028c9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 280,
+        "wires": [
+            [
+                "c990e39d31dba47a"
+            ]
+        ]
+    },
+    {
+        "id": "c990e39d31dba47a",
+        "type": "function",
+        "z": "c4cd018c2c3028c9",
+        "name": "전역변수a",
+        "func": "global.set(\"a\",\"100\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    }
+]

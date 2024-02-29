@@ -1,0 +1,162 @@
+[
+    {
+        "id": "229eccc1d66f9602",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c3b747f260372feb",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "a9a8b1974cc9cfd3",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "c3b747f260372feb",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "eabdc319a289e9fe",
+        "type": "function",
+        "z": "229eccc1d66f9602",
+        "name": "function 1",
+        "func": "msg.payload -= 10;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "3e43fbc03c712a02",
+                "b0e017a516bd2011"
+            ]
+        ]
+    },
+    {
+        "id": "958be290e0673b38",
+        "type": "inject",
+        "z": "229eccc1d66f9602",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "100",
+        "payloadType": "num",
+        "x": 70,
+        "y": 220,
+        "wires": [
+            [
+                "eabdc319a289e9fe"
+            ]
+        ]
+    },
+    {
+        "id": "3e43fbc03c712a02",
+        "type": "debug",
+        "z": "229eccc1d66f9602",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "723bab8c3f50360f",
+        "type": "comment",
+        "z": "229eccc1d66f9602",
+        "name": "루트명령어",
+        "info": "msg.payload = Math.sqrt(msg.payload);\nreturn msg;",
+        "x": 260,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "51d011c9afd64b02",
+        "type": "comment",
+        "z": "229eccc1d66f9602",
+        "name": "js 수학함수 참고",
+        "info": "https://www.w3schools.com/jsref/jsref_obj_math.asp",
+        "x": 280,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "04dfbd3e314505a9",
+        "type": "ui_numeric",
+        "z": "229eccc1d66f9602",
+        "name": "",
+        "label": "numeric",
+        "tooltip": "",
+        "group": "a9a8b1974cc9cfd3",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 80,
+        "y": 320,
+        "wires": [
+            [
+                "eabdc319a289e9fe"
+            ]
+        ]
+    },
+    {
+        "id": "b0e017a516bd2011",
+        "type": "ui_text",
+        "z": "229eccc1d66f9602",
+        "group": "a9a8b1974cc9cfd3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 470,
+        "y": 300,
+        "wires": []
+    }
+]
