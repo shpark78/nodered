@@ -1,0 +1,191 @@
+[
+    {
+        "id": "735982cade62c822",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "129593e0.7e203c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.mqtt-dashboard.com",
+        "port": "1883",
+        "clientid": "asdfasfsafasfsffdsd",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "1722d6c0.c5b989",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "76e51cdf.b93f44",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "76e51cdf.b93f44",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "4c65861e.6f36f8",
+        "type": "mqtt out",
+        "z": "735982cade62c822",
+        "name": "",
+        "topic": "outTopic_zxcvb12345",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "129593e0.7e203c",
+        "x": 380,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "bc9b174a.2f4d98",
+        "type": "mqtt in",
+        "z": "735982cade62c822",
+        "name": "",
+        "topic": "outTopic_zxcvb12345",
+        "qos": "2",
+        "broker": "129593e0.7e203c",
+        "inputs": 0,
+        "x": 213.99998474121094,
+        "y": 356.9999876022339,
+        "wires": [
+            [
+                "cf2fc979.359928",
+                "94f24d418cc37a29"
+            ]
+        ]
+    },
+    {
+        "id": "daaccc0.85e8f38",
+        "type": "comment",
+        "z": "735982cade62c822",
+        "name": "mqtt 사용법",
+        "info": "",
+        "x": 150,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "cf2fc979.359928",
+        "type": "ui_led",
+        "z": "735982cade62c822",
+        "order": 4,
+        "group": "1722d6c0.c5b989",
+        "width": "",
+        "height": "",
+        "label": "",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 399.0729446411133,
+        "y": 357.6249895095825,
+        "wires": []
+    },
+    {
+        "id": "218ce002.b890f",
+        "type": "ui_switch",
+        "z": "735982cade62c822",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "1722d6c0.c5b989",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 160.07638549804688,
+        "y": 277.1180648803711,
+        "wires": [
+            [
+                "4c65861e.6f36f8",
+                "8e60fad7c70fdb95"
+            ]
+        ]
+    },
+    {
+        "id": "8e60fad7c70fdb95",
+        "type": "debug",
+        "z": "735982cade62c822",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "94f24d418cc37a29",
+        "type": "debug",
+        "z": "735982cade62c822",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 440,
+        "wires": []
+    }
+]

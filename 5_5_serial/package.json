@@ -1,0 +1,12 @@
+{
+    "name": "5_5_serial",
+    "description": "시리얼통신",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}

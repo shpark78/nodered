@@ -1,0 +1,192 @@
+[
+    {
+        "id": "a7442dbbdecfcc26",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1722d6c0.c5b989",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "76e51cdf.b93f44",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "76e51cdf.b93f44",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "daaccc0.85e8f38",
+        "type": "comment",
+        "z": "a7442dbbdecfcc26",
+        "name": "Led 만들기",
+        "info": "",
+        "x": 160,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "5b86ba2e.66aa74",
+        "type": "function",
+        "z": "a7442dbbdecfcc26",
+        "name": "Test",
+        "func": "msg.color = (msg.payload === \"ON\")?\"lime\":\"DarkOrange \";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 295.9375228881836,
+        "y": 222.80553913116455,
+        "wires": [
+            [
+                "55f2b764.ceea68",
+                "2ee3094c.88db26",
+                "29563ad8.7ece96",
+                "84183fc4.20b73"
+            ]
+        ]
+    },
+    {
+        "id": "84183fc4.20b73",
+        "type": "ui_text",
+        "z": "a7442dbbdecfcc26",
+        "group": "1722d6c0.c5b989",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "LED",
+        "format": "<font color={{msg.color}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 444.9375457763672,
+        "y": 220.8055648803711,
+        "wires": []
+    },
+    {
+        "id": "2ee3094c.88db26",
+        "type": "ui_template",
+        "z": "a7442dbbdecfcc26",
+        "group": "1722d6c0.c5b989",
+        "name": "LED1",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<svg width=\"100\" height=\"80\">\n    <circle id=\"circle1\" cx=\"20\" cy=\"20\" r=\"20\"\n            style=\"stroke: none; fill: {{msg.color}};\"/>\n</svg>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 446.0000686645508,
+        "y": 275.46529388427734,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "29563ad8.7ece96",
+        "type": "ui_template",
+        "z": "a7442dbbdecfcc26",
+        "group": "1722d6c0.c5b989",
+        "name": "LED2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n\n#circle1 {\n    stroke: none;\n    fill: {{msg.color}};\n}\n\n</style>\n\n<svg>\n    <circle id=\"circle1\" cx=\"50\" cy=\"20\" r=\"20\"/>\n</svg>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 449.9375228881836,
+        "y": 326.80554485321045,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "55f2b764.ceea68",
+        "type": "ui_template",
+        "z": "a7442dbbdecfcc26",
+        "group": "1722d6c0.c5b989",
+        "name": "LED3",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "format": "<svg width=\"100\" height=\"80\">\n    <circle id=\"circle1\" cx=\"50\" cy=\"40\" r=\"30\" stroke={{msg.color}} fill=\"transparent\" stroke-width=\"5\"/>\n</svg>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 450.9375114440918,
+        "y": 374.80554962158203,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd25ed1e.aa6aa",
+        "type": "ui_switch",
+        "z": "a7442dbbdecfcc26",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "1722d6c0.c5b989",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 164.98957061767578,
+        "y": 222.90279006958008,
+        "wires": [
+            [
+                "5b86ba2e.66aa74"
+            ]
+        ]
+    },
+    {
+        "id": "98b4db91a14075d8",
+        "type": "comment",
+        "z": "a7442dbbdecfcc26",
+        "name": "template 이용",
+        "info": "",
+        "x": 610,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6d555180fb4e9873",
+        "type": "comment",
+        "z": "a7442dbbdecfcc26",
+        "name": "color 변경",
+        "info": "",
+        "x": 360,
+        "y": 160,
+        "wires": []
+    }
+]

@@ -1,0 +1,363 @@
+[
+    {
+        "id": "859a7e20c8ef3042",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "33de902ed52e137b",
+        "type": "tab",
+        "label": "플로우 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "929cd6c1695d9947",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "cddc4e2c47727243",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "e09ef8e909b2399a",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "cddc4e2c47727243",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "c65a5c767af9edcc",
+        "type": "ui_tab",
+        "name": "Tab 2",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "313485584be7064a",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "c65a5c767af9edcc",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "6542e46eec0a6451",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "cddc4e2c47727243",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "8c1ac93c47110b69",
+        "type": "ui_slider",
+        "z": "859a7e20c8ef3042",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "e09ef8e909b2399a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "0d551097a5b3d786"
+            ]
+        ]
+    },
+    {
+        "id": "0d551097a5b3d786",
+        "type": "ui_gauge",
+        "z": "859a7e20c8ef3042",
+        "name": "",
+        "group": "e09ef8e909b2399a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 610,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "5de091ba24b1a99d",
+        "type": "ui_chart",
+        "z": "859a7e20c8ef3042",
+        "name": "",
+        "group": "6542e46eec0a6451",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "881ea880eb024def",
+        "type": "ui_slider",
+        "z": "859a7e20c8ef3042",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "6542e46eec0a6451",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 350,
+        "y": 420,
+        "wires": [
+            [
+                "5de091ba24b1a99d"
+            ]
+        ]
+    },
+    {
+        "id": "a760fb1c9892591a",
+        "type": "comment",
+        "z": "859a7e20c8ef3042",
+        "name": "설정",
+        "info": "대쉬보드탭 에서\n탭,그룹 설정을 해줘야한다",
+        "x": 770,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2e5a03062dfe9594",
+        "type": "ui_chart",
+        "z": "33de902ed52e137b",
+        "name": "",
+        "group": "313485584be7064a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 630,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e4787f41a2f16783",
+        "type": "ui_slider",
+        "z": "33de902ed52e137b",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "313485584be7064a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 330,
+        "y": 280,
+        "wires": [
+            [
+                "2e5a03062dfe9594"
+            ]
+        ]
+    }
+]

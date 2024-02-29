@@ -1,0 +1,93 @@
+[
+    {
+        "id": "777f79558055fc48",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "acf9bb8e.2fd878",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM3",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "false",
+        "responsetimeout": ""
+    },
+    {
+        "id": "f4276481.e14f48",
+        "type": "serial in",
+        "z": "777f79558055fc48",
+        "name": "COM3",
+        "serial": "acf9bb8e.2fd878",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "5d0b00b.354a6"
+            ]
+        ]
+    },
+    {
+        "id": "d82a04be.a3a908",
+        "type": "serial out",
+        "z": "777f79558055fc48",
+        "name": "COM3",
+        "serial": "acf9bb8e.2fd878",
+        "x": 332,
+        "y": 222,
+        "wires": []
+    },
+    {
+        "id": "f5b8cccc.9436d",
+        "type": "inject",
+        "z": "777f79558055fc48",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "kdi",
+        "payload": "test",
+        "payloadType": "str",
+        "x": 199,
+        "y": 221,
+        "wires": [
+            [
+                "d82a04be.a3a908"
+            ]
+        ]
+    },
+    {
+        "id": "5d0b00b.354a6",
+        "type": "debug",
+        "z": "777f79558055fc48",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 339,
+        "y": 300,
+        "wires": []
+    }
+]

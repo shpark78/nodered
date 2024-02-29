@@ -1,0 +1,76 @@
+[
+    {
+        "id": "9dee3db3872b43c6",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "be79a0e93aad8c2d",
+        "type": "play audio",
+        "z": "9dee3db3872b43c6",
+        "name": "알람",
+        "voice": "0",
+        "x": 370,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "95e65f310b28ad20",
+        "type": "inject",
+        "z": "9dee3db3872b43c6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "고수위 경보",
+        "payloadType": "str",
+        "x": 150,
+        "y": 460,
+        "wires": [
+            [
+                "ca88ebccfaebb7b5",
+                "be79a0e93aad8c2d"
+            ]
+        ]
+    },
+    {
+        "id": "ca88ebccfaebb7b5",
+        "type": "debug",
+        "z": "9dee3db3872b43c6",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "0167584921b81170",
+        "type": "comment",
+        "z": "9dee3db3872b43c6",
+        "name": "반복설정 가능",
+        "info": "",
+        "x": 130,
+        "y": 520,
+        "wires": []
+    }
+]
