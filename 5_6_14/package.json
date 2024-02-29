@@ -1,0 +1,12 @@
+{
+    "name": "5_6_14",
+    "description": "스케줄러",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}

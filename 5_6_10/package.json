@@ -1,0 +1,12 @@
+{
+    "name": "5_6_10",
+    "description": "아이콘 변경방법",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}

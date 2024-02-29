@@ -1,0 +1,158 @@
+[
+    {
+        "id": "5a5449d1514a3325",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dad809e3a72dc531",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "04f452a55814e08c",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "dad809e3a72dc531",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "269b163253eeb2e6",
+        "type": "ui_time_scheduler",
+        "z": "5a5449d1514a3325",
+        "group": "04f452a55814e08c",
+        "name": "",
+        "startDay": 0,
+        "refresh": 60,
+        "devices": [
+            "Device 1"
+        ],
+        "singleOff": false,
+        "onlySendChange": false,
+        "customPayload": false,
+        "eventMode": false,
+        "eventOptions": [],
+        "sendTopic": false,
+        "lat": "",
+        "lon": "",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "33753e7d862d988d"
+            ],
+            [
+                "f3063d67851f3f9f"
+            ]
+        ]
+    },
+    {
+        "id": "33753e7d862d988d",
+        "type": "file",
+        "z": "5a5449d1514a3325",
+        "name": "",
+        "filename": "d:/date.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 840,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cae696118165f882",
+        "type": "file in",
+        "z": "5a5449d1514a3325",
+        "name": "read file",
+        "filename": "d:/date.txt",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 520,
+        "y": 200,
+        "wires": [
+            [
+                "269b163253eeb2e6"
+            ]
+        ]
+    },
+    {
+        "id": "6781462bd0dd4189",
+        "type": "inject",
+        "z": "5a5449d1514a3325",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "cae696118165f882"
+            ]
+        ]
+    },
+    {
+        "id": "f3063d67851f3f9f",
+        "type": "ui_led",
+        "z": "5a5449d1514a3325",
+        "order": 1,
+        "group": "04f452a55814e08c",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 850,
+        "y": 260,
+        "wires": []
+    }
+]

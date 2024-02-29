@@ -1,0 +1,189 @@
+[
+    {
+        "id": "f1f6c4c6b0808e07",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "377856fa.64711a",
+        "type": "subflow",
+        "name": "Iterate",
+        "in": [
+            {
+                "x": 220,
+                "y": 219,
+                "wires": [
+                    {
+                        "id": "9aae9ea2.18832"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 454,
+                "y": 174,
+                "wires": [
+                    {
+                        "id": "9aae9ea2.18832",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 455,
+                "y": 259,
+                "wires": [
+                    {
+                        "id": "9aae9ea2.18832",
+                        "port": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "9aae9ea2.18832",
+        "type": "function",
+        "z": "377856fa.64711a",
+        "name": "Iterate",
+        "func": "//Node has 2 outputs - 1 for itteration and 1 for completion\nvar nextObj, out;\nvar itt = msg.iterationInfo;\n\n\n//If the iterating has not yet begun set up the iteration metadata in the msg\nif (typeof itt === 'undefined') {\n    //Make sure payload is an array\n    if( Object.prototype.toString.call(msg.payload) !== '[object Array]' ) {\n       msg.payload = [msg.payload];\n    }\n\n    msg.iterationInfo = itt = {};\n    itt.index = -1;\n    itt.inArray = msg.payload;\n    itt.outArray = [];\n\n//Otherwise just push the input to the output array\n} else {\n    itt.outArray.push(msg.payload)\n}\n\n//Goto next object\nitt.index ++;\n\n//If there are stil objects left to iterate goto the next one in the original array\nif (itt.index < itt.inArray.length) {\n    nextObj = msg;\n    msg.payload = itt.inArray[itt.index];\n\n//otherwise pass the out array as the payload\n} else {\n    out = msg;\n    msg.payload = itt.outArray;\n    delete msg.iterationInfo;\n}\n\nreturn [nextObj, out];",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 347,
+        "y": 220,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "778284ff.6ef43c",
+        "type": "subflow:377856fa.64711a",
+        "z": "f1f6c4c6b0808e07",
+        "name": "Iterate",
+        "env": [],
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "43734aad.548f44"
+            ],
+            [
+                "d312fa83.359958"
+            ]
+        ]
+    },
+    {
+        "id": "54bb5e1e.2bb9f",
+        "type": "inject",
+        "z": "f1f6c4c6b0808e07",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 132.06598281860352,
+        "y": 263.8333773612976,
+        "wires": [
+            [
+                "c62dbbca.62b388"
+            ]
+        ]
+    },
+    {
+        "id": "c62dbbca.62b388",
+        "type": "function",
+        "z": "f1f6c4c6b0808e07",
+        "name": "배열",
+        "func": "var newMsg={};\nnewMsg.payload=[1,2,3,4,5];\nreturn newMsg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 271.0556297302246,
+        "y": 262.62502431869507,
+        "wires": [
+            [
+                "778284ff.6ef43c",
+                "7b2d05d7.1eceac"
+            ]
+        ]
+    },
+    {
+        "id": "d312fa83.359958",
+        "type": "debug",
+        "z": "f1f6c4c6b0808e07",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 607.0659790039062,
+        "y": 266.98269152641296,
+        "wires": []
+    },
+    {
+        "id": "43734aad.548f44",
+        "type": "function",
+        "z": "f1f6c4c6b0808e07",
+        "name": "",
+        "func": "msg.payload += 5;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 431.065975189209,
+        "y": 190.61807012557983,
+        "wires": [
+            [
+                "778284ff.6ef43c"
+            ]
+        ]
+    },
+    {
+        "id": "7b2d05d7.1eceac",
+        "type": "function",
+        "z": "f1f6c4c6b0808e07",
+        "name": "for 문",
+        "func": "var i;\nfor(i=0; i<msg.payload.length ; i++)\n    msg.payload[i] = i+1;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 424.0556221008301,
+        "y": 317.62855291366577,
+        "wires": [
+            [
+                "f75d9d9e.104"
+            ]
+        ]
+    },
+    {
+        "id": "f75d9d9e.104",
+        "type": "debug",
+        "z": "f1f6c4c6b0808e07",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 597.0555839538574,
+        "y": 316.99308347702026,
+        "wires": []
+    }
+]

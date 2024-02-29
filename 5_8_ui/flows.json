@@ -1,0 +1,433 @@
+[
+    {
+        "id": "ddd38eeab4322ce7",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c913e1e6.2f1be",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "42cb0f78.358cc",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "1c14dca8.861663",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "a29b6b09.b7bf68",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "5b63cb04.1920c4",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "a29b6b09.b7bf68",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "42cb0f78.358cc",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "a29b6b09.b7bf68",
+        "type": "ui_tab",
+        "name": "Tab 2",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "43b1e68b91f184b7",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "a5593908.d6bab8",
+        "type": "ui_switch",
+        "z": "ddd38eeab4322ce7",
+        "name": "",
+        "label": "Tab2 Group1 숨기기",
+        "tooltip": "",
+        "group": "c913e1e6.2f1be",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "8bc62d0b.cab7"
+            ]
+        ]
+    },
+    {
+        "id": "f94a485a.1553f8",
+        "type": "ui_switch",
+        "z": "ddd38eeab4322ce7",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "1c14dca8.861663",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 378.944393157959,
+        "y": 205.33333778381348,
+        "wires": [
+            [
+                "5f075b7d.cb4e74"
+            ]
+        ]
+    },
+    {
+        "id": "5f075b7d.cb4e74",
+        "type": "ui_led",
+        "z": "ddd38eeab4322ce7",
+        "order": 2,
+        "group": "1c14dca8.861663",
+        "width": "3",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "",
+        "x": 504.94440841674805,
+        "y": 205.43057918548584,
+        "wires": []
+    },
+    {
+        "id": "fc6fcd2e.0e6c3",
+        "type": "ui_switch",
+        "z": "ddd38eeab4322ce7",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "5b63cb04.1920c4",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 106.94443130493164,
+        "y": 206.33332443237305,
+        "wires": [
+            [
+                "2c5e6b9f.40c054"
+            ]
+        ]
+    },
+    {
+        "id": "2c5e6b9f.40c054",
+        "type": "ui_led",
+        "z": "ddd38eeab4322ce7",
+        "order": 2,
+        "group": "5b63cb04.1920c4",
+        "width": "3",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 231.94443130493164,
+        "y": 206.43057250976562,
+        "wires": []
+    },
+    {
+        "id": "8bc62d0b.cab7",
+        "type": "function",
+        "z": "ddd38eeab4322ce7",
+        "name": "hide Tab2-Group1",
+        "func": "if(msg.payload==true)\n    msg.payload={\"group\":{\"hide\":[\"Tab_2_Group_1\"]}};\nelse\n    msg.payload={\"group\":{\"show\":[\"Tab_2_Group_1\"]}};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 390,
+        "y": 280,
+        "wires": [
+            [
+                "5a1947fd.876aa8"
+            ]
+        ]
+    },
+    {
+        "id": "5a1947fd.876aa8",
+        "type": "ui_ui_control",
+        "z": "ddd38eeab4322ce7",
+        "name": "",
+        "x": 620,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9f2956e8.f56fc8",
+        "type": "function",
+        "z": "ddd38eeab4322ce7",
+        "name": "hide Tab2-Group1",
+        "func": "if(msg.payload==true)\n    msg.payload={\"group\":{\"hide\":[\"Tab_2_Group_2\"]}};\nelse\n    msg.payload={\"group\":{\"show\":[\"Tab_2_Group_2\"]}};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 340,
+        "wires": [
+            [
+                "5a1947fd.876aa8"
+            ]
+        ]
+    },
+    {
+        "id": "abb576ec.c54e18",
+        "type": "ui_switch",
+        "z": "ddd38eeab4322ce7",
+        "name": "",
+        "label": "Tab2 Group2 숨기기",
+        "tooltip": "",
+        "group": "c913e1e6.2f1be",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 160,
+        "y": 340,
+        "wires": [
+            [
+                "9f2956e8.f56fc8"
+            ]
+        ]
+    },
+    {
+        "id": "618085aee9551c25",
+        "type": "ui_switch",
+        "z": "ddd38eeab4322ce7",
+        "name": "",
+        "label": "Tab2 숨기기",
+        "tooltip": "",
+        "group": "c913e1e6.2f1be",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 130,
+        "y": 420,
+        "wires": [
+            [
+                "b061e9a50f65b828"
+            ]
+        ]
+    },
+    {
+        "id": "b061e9a50f65b828",
+        "type": "function",
+        "z": "ddd38eeab4322ce7",
+        "name": "hide Tab2-Group1",
+        "func": "if(msg.payload==true)\n    msg.payload={\"tabs\":{\"hide\":[\"Tab_2\"]}};\nelse\n    msg.payload={\"tabs\":{\"show\":[\"Tab_2\"]}};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "5a1947fd.876aa8"
+            ]
+        ]
+    }
+]
