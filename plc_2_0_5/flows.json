@@ -1,0 +1,223 @@
+[
+    {
+        "id": "ed14ee638cfeee45",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8a31747.856ce88",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM4",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "false",
+        "responsetimeout": "100"
+    },
+    {
+        "id": "fc1c671c.4cbe58",
+        "type": "function",
+        "z": "ed14ee638cfeee45",
+        "name": "읽기 mw10",
+        "func": "msg.payload='\\u0005'+\"00RSS0105%MW10\"+'\\u0004'+'\\u000A'+'\\u000A';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 380,
+        "wires": [
+            [
+                "1c91b31.e29554d"
+            ]
+        ]
+    },
+    {
+        "id": "1c91b31.e29554d",
+        "type": "serial request",
+        "z": "ed14ee638cfeee45",
+        "name": "",
+        "serial": "8a31747.856ce88",
+        "x": 446.99998474121094,
+        "y": 379.9999933242798,
+        "wires": [
+            [
+                "c8d7d26a.3cc98"
+            ]
+        ]
+    },
+    {
+        "id": "c8d7d26a.3cc98",
+        "type": "debug",
+        "z": "ed14ee638cfeee45",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 617.9999504089355,
+        "y": 382.00004959106445,
+        "wires": []
+    },
+    {
+        "id": "241cd1da.e0db9e",
+        "type": "debug",
+        "z": "ed14ee638cfeee45",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 749.9998207092285,
+        "y": 224.99986267089844,
+        "wires": []
+    },
+    {
+        "id": "c04b3459.4037c8",
+        "type": "serial request",
+        "z": "ed14ee638cfeee45",
+        "name": "",
+        "serial": "8a31747.856ce88",
+        "x": 499.9999237060547,
+        "y": 226.9998550415039,
+        "wires": [
+            [
+                "241cd1da.e0db9e"
+            ]
+        ]
+    },
+    {
+        "id": "aa1b6a9c.efde98",
+        "type": "inject",
+        "z": "ed14ee638cfeee45",
+        "name": "",
+        "props": [
+            {
+                "p": "payload",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 154.05204010009766,
+        "y": 379.95486545562744,
+        "wires": [
+            [
+                "fc1c671c.4cbe58"
+            ]
+        ]
+    },
+    {
+        "id": "b971753b.569ec8",
+        "type": "inject",
+        "z": "ed14ee638cfeee45",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "101",
+        "payloadType": "num",
+        "x": 145.00000762939453,
+        "y": 281.9998617172241,
+        "wires": [
+            [
+                "3452e259.8cde2e"
+            ]
+        ]
+    },
+    {
+        "id": "3452e259.8cde2e",
+        "type": "function",
+        "z": "ed14ee638cfeee45",
+        "name": "쓰기 mw10",
+        "func": "var bin=msg.payload;\nbin=bin.toString(16);\nbin=\"0000\"+bin;\nbin = bin.slice(-4);\nmsg.payload='\\u0005'+\"00WSS0105%MW10\"+bin+'\\u0004'+'\\u000A'+'\\u000A';  \nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 346.0000190734863,
+        "y": 226.99996089935303,
+        "wires": [
+            [
+                "c04b3459.4037c8"
+            ]
+        ]
+    },
+    {
+        "id": "1f657868.cf28f8",
+        "type": "inject",
+        "z": "ed14ee638cfeee45",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "100",
+        "payloadType": "num",
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "3452e259.8cde2e"
+            ]
+        ]
+    },
+    {
+        "id": "e8cffc53.dfa5d",
+        "type": "inject",
+        "z": "ed14ee638cfeee45",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "102",
+        "payloadType": "num",
+        "x": 144.9999885559082,
+        "y": 327.99996280670166,
+        "wires": [
+            [
+                "3452e259.8cde2e"
+            ]
+        ]
+    }
+]

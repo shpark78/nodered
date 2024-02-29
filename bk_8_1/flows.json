@@ -1,0 +1,127 @@
+[
+    {
+        "id": "269f18721aba325a",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "de67cca2.14d41",
+        "type": "inject",
+        "z": "269f18721aba325a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 300,
+        "wires": [
+            [
+                "979e7a62.c7b588"
+            ]
+        ]
+    },
+    {
+        "id": "979e7a62.c7b588",
+        "type": "http request",
+        "z": "269f18721aba325a",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "www.naver.com",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 460,
+        "y": 300,
+        "wires": [
+            [
+                "49d16c01.082ac4",
+                "2422a858.ff0828"
+            ]
+        ]
+    },
+    {
+        "id": "49d16c01.082ac4",
+        "type": "debug",
+        "z": "269f18721aba325a",
+        "name": "request 를 통해 수신되는 값",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "41e25540.18767c",
+        "type": "comment",
+        "z": "269f18721aba325a",
+        "name": "8.1 웹 크롤링 만들기(web crawling)",
+        "info": "",
+        "x": 330,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "2422a858.ff0828",
+        "type": "file",
+        "z": "269f18721aba325a",
+        "name": "",
+        "filename": "C:\\\\node-sample\\\\index.html",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "utf8",
+        "x": 750,
+        "y": 360,
+        "wires": [
+            [
+                "66a34007.607bd"
+            ]
+        ]
+    },
+    {
+        "id": "66a34007.607bd",
+        "type": "debug",
+        "z": "269f18721aba325a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 360,
+        "wires": []
+    }
+]

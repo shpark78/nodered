@@ -1,0 +1,12 @@
+{
+    "name": "bk_8_1",
+    "description": "크롤링",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}

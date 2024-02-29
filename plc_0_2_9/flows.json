@@ -1,0 +1,335 @@
+[
+    {
+        "id": "d88216c5f068a2fd",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8a31747.856ce88",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM4",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "false",
+        "responsetimeout": "100"
+    },
+    {
+        "id": "6200351e.7bc8cc",
+        "type": "ui_group",
+        "name": "PLC Testing",
+        "tab": "a4861a30.b27ed8",
+        "order": 1,
+        "disp": true,
+        "width": "9",
+        "collapse": false
+    },
+    {
+        "id": "a4861a30.b27ed8",
+        "type": "ui_tab",
+        "name": "Tab",
+        "icon": "dashboard",
+        "order": 0
+    },
+    {
+        "id": "fc1c671c.4cbe58",
+        "type": "function",
+        "z": "d88216c5f068a2fd",
+        "name": "Read T97",
+        "func": "msg.payload='\\u0005'+\"00RSS0106%TW097\"+'\\u0004'+'\\u000A'+'\\u000A';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 260,
+        "y": 200,
+        "wires": [
+            [
+                "1c91b31.e29554d"
+            ]
+        ]
+    },
+    {
+        "id": "1c91b31.e29554d",
+        "type": "serial request",
+        "z": "d88216c5f068a2fd",
+        "name": "",
+        "serial": "8a31747.856ce88",
+        "x": 390.99999237060547,
+        "y": 199.00000953674316,
+        "wires": [
+            [
+                "d8d3f306.c1c3d",
+                "c058f224.a1c47"
+            ]
+        ]
+    },
+    {
+        "id": "aa1b6a9c.efde98",
+        "type": "inject",
+        "z": "d88216c5f068a2fd",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99.052001953125,
+        "y": 198.95486640930176,
+        "wires": [
+            [
+                "fc1c671c.4cbe58"
+            ]
+        ]
+    },
+    {
+        "id": "d8d3f306.c1c3d",
+        "type": "debug",
+        "z": "d88216c5f068a2fd",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 565.052116394043,
+        "y": 252.5624828338623,
+        "wires": []
+    },
+    {
+        "id": "c2ca4e28.023da",
+        "type": "function",
+        "z": "d88216c5f068a2fd",
+        "name": "Write M0=0",
+        "func": "msg.payload='\\u0005'+\"00WSS0105%MD8000000064\"+'\\u0004'+'\\u000A'+'\\u000A';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290.00007247924805,
+        "y": 321.99994945526123,
+        "wires": [
+            [
+                "63002ed8.7be9e"
+            ]
+        ]
+    },
+    {
+        "id": "63002ed8.7be9e",
+        "type": "serial request",
+        "z": "d88216c5f068a2fd",
+        "name": "",
+        "serial": "8a31747.856ce88",
+        "x": 471.9999809265137,
+        "y": 322.9999885559082,
+        "wires": [
+            [
+                "321dddb5.6af092"
+            ]
+        ]
+    },
+    {
+        "id": "8b530055.a70db",
+        "type": "inject",
+        "z": "d88216c5f068a2fd",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 115.05204010009766,
+        "y": 320.95484924316406,
+        "wires": [
+            [
+                "c2ca4e28.023da"
+            ]
+        ]
+    },
+    {
+        "id": "321dddb5.6af092",
+        "type": "debug",
+        "z": "d88216c5f068a2fd",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 636.0520896911621,
+        "y": 324.56242752075195,
+        "wires": []
+    },
+    {
+        "id": "c058f224.a1c47",
+        "type": "function",
+        "z": "d88216c5f068a2fd",
+        "name": "S Return Value",
+        "func": "var dec = msg.payload.charAt(13);\nmsg.payload=dec;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 591.9999923706055,
+        "y": 198.9999656677246,
+        "wires": [
+            [
+                "76335e48.556c2"
+            ]
+        ]
+    },
+    {
+        "id": "76335e48.556c2",
+        "type": "ui_text",
+        "z": "d88216c5f068a2fd",
+        "group": "6200351e.7bc8cc",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "S Value",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 758.0625305175781,
+        "y": 198.23956680297852,
+        "wires": []
+    },
+    {
+        "id": "7870978d.6e8b68",
+        "type": "function",
+        "z": "d88216c5f068a2fd",
+        "name": "Write M0=1",
+        "func": "msg.payload='\\u0005'+\"00WSS0106%MW0000001\"+'\\u0004'+'\\u000A'+'\\u000A';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 293.00000381469727,
+        "y": 382.99993896484375,
+        "wires": [
+            [
+                "63002ed8.7be9e"
+            ]
+        ]
+    },
+    {
+        "id": "c54b6b74.e79898",
+        "type": "inject",
+        "z": "d88216c5f068a2fd",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 115.99998092651367,
+        "y": 381.99992752075195,
+        "wires": [
+            [
+                "7870978d.6e8b68"
+            ]
+        ]
+    },
+    {
+        "id": "ca90bac6.d5f588",
+        "type": "function",
+        "z": "d88216c5f068a2fd",
+        "name": "Write D1=0x10",
+        "func": "msg.payload='\\u0005'+\"00WSS0106%DW0010010\"+'\\u0004'+'\\u000A'+'\\u000A';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 302.98266983032227,
+        "y": 451.9999370574951,
+        "wires": [
+            [
+                "63002ed8.7be9e"
+            ]
+        ]
+    },
+    {
+        "id": "b5928e77.a0e3c",
+        "type": "inject",
+        "z": "d88216c5f068a2fd",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110.98264694213867,
+        "y": 449.99992179870605,
+        "wires": [
+            [
+                "ca90bac6.d5f588"
+            ]
+        ]
+    },
+    {
+        "id": "75a12149.7e689",
+        "type": "function",
+        "z": "d88216c5f068a2fd",
+        "name": "Write D1=0x11  M0=1",
+        "func": "msg.payload='\\u0005'+\"00WSS0206%DW001001106%MW0000001\"+'\\u0004'+'\\u000A'+'\\u000A';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 315.98266983032227,
+        "y": 504.9999370574951,
+        "wires": [
+            [
+                "63002ed8.7be9e"
+            ]
+        ]
+    },
+    {
+        "id": "ee585d49.8575f",
+        "type": "inject",
+        "z": "d88216c5f068a2fd",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110.98265075683594,
+        "y": 504.9999370574951,
+        "wires": [
+            [
+                "75a12149.7e689"
+            ]
+        ]
+    },
+    {
+        "id": "52aca13b2926107d",
+        "type": "comment",
+        "z": "d88216c5f068a2fd",
+        "name": "더블워드일  때 자릿수",
+        "info": "00000000",
+        "x": 600,
+        "y": 380,
+        "wires": []
+    }
+]

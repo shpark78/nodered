@@ -1,0 +1,12 @@
+{
+    "name": "plc_2_0_5",
+    "description": "숫자값 입력",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}

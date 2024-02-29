@@ -1,0 +1,57 @@
+[
+    {
+        "id": "43d2c14530897c08",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d0ddaf29911bface",
+        "type": "http in",
+        "z": "43d2c14530897c08",
+        "name": "",
+        "url": "/psh",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "58ee6d636856fe29"
+            ]
+        ]
+    },
+    {
+        "id": "58ee6d636856fe29",
+        "type": "template",
+        "z": "43d2c14530897c08",
+        "name": "page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n    <head></head>\n    <body>\n        <h1>윤정인 사랑해!!</h1>\n    </body>\n</html>",
+        "output": "str",
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "89a58e37713648bc"
+            ]
+        ]
+    },
+    {
+        "id": "89a58e37713648bc",
+        "type": "http response",
+        "z": "43d2c14530897c08",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 510,
+        "y": 80,
+        "wires": []
+    }
+]

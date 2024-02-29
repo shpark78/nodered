@@ -1,0 +1,629 @@
+[
+    {
+        "id": "94462c8dfe0414ff",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "458ecdd8.73b324",
+        "type": "ui_group",
+        "name": "PLC Testing",
+        "tab": "f02856cc.aae528",
+        "disp": true,
+        "width": "9",
+        "collapse": false
+    },
+    {
+        "id": "9b80aabd.b7ef88",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM4",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "false",
+        "responsetimeout": "1000"
+    },
+    {
+        "id": "f02856cc.aae528",
+        "type": "ui_tab",
+        "name": "Tab",
+        "icon": "dashboard",
+        "order": 0
+    },
+    {
+        "id": "b8e94aa.fd098b8",
+        "type": "ui_switch",
+        "z": "94462c8dfe0414ff",
+        "name": "",
+        "label": "P40",
+        "tooltip": "",
+        "group": "458ecdd8.73b324",
+        "order": 2,
+        "width": "2",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "x": 770,
+        "y": 360,
+        "wires": [
+            [
+                "a0829ac5.b87bf8"
+            ]
+        ]
+    },
+    {
+        "id": "9e168076.d7b82",
+        "type": "ui_switch",
+        "z": "94462c8dfe0414ff",
+        "name": "",
+        "label": "P41",
+        "tooltip": "",
+        "group": "458ecdd8.73b324",
+        "order": 3,
+        "width": "2",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "2",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "x": 769.9999923706055,
+        "y": 413.00002098083496,
+        "wires": [
+            [
+                "639d7857.2bdf88"
+            ]
+        ]
+    },
+    {
+        "id": "d394688c.44d908",
+        "type": "ui_switch",
+        "z": "94462c8dfe0414ff",
+        "name": "",
+        "label": "P42",
+        "tooltip": "",
+        "group": "458ecdd8.73b324",
+        "order": 4,
+        "width": "2",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "4",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "x": 767.9999923706055,
+        "y": 473.00002098083496,
+        "wires": [
+            [
+                "bfc12cf9.fd9ec"
+            ]
+        ]
+    },
+    {
+        "id": "cb93910c.572a7",
+        "type": "ui_switch",
+        "z": "94462c8dfe0414ff",
+        "name": "",
+        "label": "P44",
+        "tooltip": "",
+        "group": "458ecdd8.73b324",
+        "order": 5,
+        "width": "2",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "8",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "x": 766.9999923706055,
+        "y": 524.000020980835,
+        "wires": [
+            [
+                "23b36600.bb0b3a"
+            ]
+        ]
+    },
+    {
+        "id": "eb3e0214.63ff5",
+        "type": "ui_text",
+        "z": "94462c8dfe0414ff",
+        "group": "458ecdd8.73b324",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "받음",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 649.9999580383301,
+        "y": 257.0000534057617,
+        "wires": []
+    },
+    {
+        "id": "2a76fcf6.37f2a4",
+        "type": "ui_text",
+        "z": "94462c8dfe0414ff",
+        "group": "458ecdd8.73b324",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "보냄",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 948.9803810119629,
+        "y": 255.99615097045898,
+        "wires": []
+    },
+    {
+        "id": "e8587852.3973b8",
+        "type": "function",
+        "z": "94462c8dfe0414ff",
+        "name": "write",
+        "func": "var p40=global.get(\"out40\")||0;\nvar p41=global.get(\"out41\")||0;\nvar p42=global.get(\"out42\")||0;\nvar p43=global.get(\"out43\")||0;\n\nvar dec = parseInt(p40+p41+p42+p43);\nmsg.payload = '\\u0005'+\"00WSS0104%QW0000\"+dec.toString(16)+'\\u0004'+'\\u000A'+'\\u000A';\nreturn msg;\n\n//자리수 넘어가면 복사해서 하나더 만든다",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 817.9803657531738,
+        "y": 297.9961783885956,
+        "wires": [
+            [
+                "2a76fcf6.37f2a4",
+                "3f12f04f.9f381"
+            ]
+        ]
+    },
+    {
+        "id": "a0829ac5.b87bf8",
+        "type": "function",
+        "z": "94462c8dfe0414ff",
+        "name": "",
+        "func": "global.set(\"out40\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 912.9803848266602,
+        "y": 360.99610805511475,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "639d7857.2bdf88",
+        "type": "function",
+        "z": "94462c8dfe0414ff",
+        "name": "",
+        "func": "global.set(\"out41\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 911.9803848266602,
+        "y": 413.99610805511475,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bfc12cf9.fd9ec",
+        "type": "function",
+        "z": "94462c8dfe0414ff",
+        "name": "",
+        "func": "global.set(\"out42\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 913.9803848266602,
+        "y": 472.99610805511475,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "23b36600.bb0b3a",
+        "type": "function",
+        "z": "94462c8dfe0414ff",
+        "name": "",
+        "func": "global.set(\"out43\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 921.9803848266602,
+        "y": 523.9961080551147,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a2af0f8c.07d78",
+        "type": "function",
+        "z": "94462c8dfe0414ff",
+        "name": "read",
+        "func": "msg.payload='\\u0005'+\"00RSS0104%IW0\"+'\\u0004'+'\\u000A'+'\\u000A';\nreturn msg;\n//u000A 널값 통신완료 확인차원",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380.9999694824219,
+        "y": 300.01049971580505,
+        "wires": [
+            [
+                "89e85365.46b5f"
+            ]
+        ]
+    },
+    {
+        "id": "89e85365.46b5f",
+        "type": "serial request",
+        "z": "94462c8dfe0414ff",
+        "name": "",
+        "serial": "9b80aabd.b7ef88",
+        "x": 500.9999694824219,
+        "y": 300.01049971580505,
+        "wires": [
+            [
+                "57049946.564dc8",
+                "eb3e0214.63ff5",
+                "2e3a4da1.728402"
+            ]
+        ]
+    },
+    {
+        "id": "53e70d23.d7f044",
+        "type": "inject",
+        "z": "94462c8dfe0414ff",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240.99996948242188,
+        "y": 300.01049971580505,
+        "wires": [
+            [
+                "a2af0f8c.07d78"
+            ]
+        ]
+    },
+    {
+        "id": "3f12f04f.9f381",
+        "type": "serial request",
+        "z": "94462c8dfe0414ff",
+        "name": "",
+        "serial": "9b80aabd.b7ef88",
+        "x": 959.9998550415039,
+        "y": 297.01067543029785,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "57049946.564dc8",
+        "type": "delay",
+        "z": "94462c8dfe0414ff",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "200",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "outputs": 1,
+        "x": 676.0554962158203,
+        "y": 299.91683650016785,
+        "wires": [
+            [
+                "e8587852.3973b8"
+            ]
+        ]
+    },
+    {
+        "id": "8bc4f3d1.ac7e8",
+        "type": "ui_led",
+        "z": "94462c8dfe0414ff",
+        "order": 6,
+        "group": "458ecdd8.73b324",
+        "width": "",
+        "height": "",
+        "label": "p00",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "p00",
+        "x": 594.0624313354492,
+        "y": 364.90282821655273,
+        "wires": []
+    },
+    {
+        "id": "2e3a4da1.728402",
+        "type": "function",
+        "z": "94462c8dfe0414ff",
+        "name": "2진수로 정리",
+        "func": "var dec = msg.payload.charAt(13);\nvar bin = parseInt(dec).toString(2); //16진수를 10진수에서 2진수로\nbin=\"0000\"+bin;\nbin = bin.slice(-4);\n\ndec = msg.payload.charAt(12);\nvar bin1 = parseInt(dec).toString(2);\nbin1=\"0000\"+bin1;\nbin1 = bin1.slice(-4);\n\nmsg.payload=bin1+bin;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 202.99991989135742,
+        "y": 381.0103826522827,
+        "wires": [
+            [
+                "9f336e46.d8faf"
+            ]
+        ]
+    },
+    {
+        "id": "9f336e46.d8faf",
+        "type": "function",
+        "z": "94462c8dfe0414ff",
+        "name": "",
+        "func": "var out=[];\nout.push({payload:msg.payload.charAt(7)});\nout.push({payload:msg.payload.charAt(6)});\nout.push({payload:msg.payload.charAt(5)});\nout.push({payload:msg.payload.charAt(4)});\nout.push({payload:msg.payload.charAt(3)});\nout.push({payload:msg.payload.charAt(2)});\n//out.push({payload:msg.payload.charAt(1)});\n//out.push({payload:msg.payload.charAt(0)});\n\nreturn [out[0],out[1],out[2],out[3],out[4],out[5]];\n",
+        "outputs": 6,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 396.0555191040039,
+        "y": 398.8645763397217,
+        "wires": [
+            [
+                "8bc4f3d1.ac7e8"
+            ],
+            [
+                "ee1e9794.86f1b8"
+            ],
+            [
+                "198fc3f0.d041fc"
+            ],
+            [
+                "8b019f82.945e1"
+            ],
+            [
+                "e25e7b99.26d988"
+            ],
+            [
+                "9c2e3d7c.89cf6"
+            ]
+        ]
+    },
+    {
+        "id": "ee1e9794.86f1b8",
+        "type": "ui_led",
+        "z": "94462c8dfe0414ff",
+        "order": 7,
+        "group": "458ecdd8.73b324",
+        "width": "",
+        "height": "",
+        "label": "p01",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "p01",
+        "x": 595.9999656677246,
+        "y": 407.0103645324707,
+        "wires": []
+    },
+    {
+        "id": "198fc3f0.d041fc",
+        "type": "ui_led",
+        "z": "94462c8dfe0414ff",
+        "order": 8,
+        "group": "458ecdd8.73b324",
+        "width": "",
+        "height": "",
+        "label": "p02",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "p02",
+        "x": 595.9999656677246,
+        "y": 447.0103645324707,
+        "wires": []
+    },
+    {
+        "id": "8b019f82.945e1",
+        "type": "ui_led",
+        "z": "94462c8dfe0414ff",
+        "order": 9,
+        "group": "458ecdd8.73b324",
+        "width": "",
+        "height": "",
+        "label": "p03",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "p03",
+        "x": 595.9999656677246,
+        "y": 486.0103950500488,
+        "wires": []
+    },
+    {
+        "id": "e25e7b99.26d988",
+        "type": "ui_led",
+        "z": "94462c8dfe0414ff",
+        "order": 10,
+        "group": "458ecdd8.73b324",
+        "width": "",
+        "height": "",
+        "label": "p04",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "p04",
+        "x": 598.9999656677246,
+        "y": 525.0103950500488,
+        "wires": []
+    },
+    {
+        "id": "9c2e3d7c.89cf6",
+        "type": "ui_led",
+        "z": "94462c8dfe0414ff",
+        "order": 11,
+        "group": "458ecdd8.73b324",
+        "width": "",
+        "height": "",
+        "label": "p05",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "p05",
+        "x": 597.9999656677246,
+        "y": 570.0103950500488,
+        "wires": []
+    },
+    {
+        "id": "9a397796e8ae3a6f",
+        "type": "comment",
+        "z": "94462c8dfe0414ff",
+        "name": "write 도 계속 보내고 있음",
+        "info": "",
+        "x": 870,
+        "y": 200,
+        "wires": []
+    }
+]

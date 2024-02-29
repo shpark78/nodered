@@ -1,0 +1,198 @@
+[
+    {
+        "id": "45844da4ef8c7843",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "738fe3d1.38b32c",
+        "type": "comment",
+        "z": "45844da4ef8c7843",
+        "name": "8.2 TEXT, CSV 파일 읽기",
+        "info": "",
+        "x": 210,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "e976811d.a1316",
+        "type": "inject",
+        "z": "45844da4ef8c7843",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "ed5af29.4a2b91"
+            ]
+        ]
+    },
+    {
+        "id": "ed5af29.4a2b91",
+        "type": "file in",
+        "z": "45844da4ef8c7843",
+        "name": "",
+        "filename": "D:\\node-sample\\score.txt",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "allProps": false,
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "b44d42a8.27f14",
+                "d00e657a.ad4008"
+            ]
+        ]
+    },
+    {
+        "id": "b44d42a8.27f14",
+        "type": "csv",
+        "z": "45844da4ef8c7843",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 610,
+        "y": 300,
+        "wires": [
+            [
+                "da42ba83.1005a8",
+                "b7724e6c.82965"
+            ]
+        ]
+    },
+    {
+        "id": "cf91bcea.42864",
+        "type": "join",
+        "z": "45844da4ef8c7843",
+        "name": "",
+        "mode": "auto",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 890,
+        "y": 300,
+        "wires": [
+            [
+                "2c459d6b.4945d2"
+            ]
+        ]
+    },
+    {
+        "id": "2c459d6b.4945d2",
+        "type": "debug",
+        "z": "45844da4ef8c7843",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "b7724e6c.82965",
+        "type": "switch",
+        "z": "45844da4ef8c7843",
+        "name": "",
+        "property": "payload.score",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "70",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": true,
+        "outputs": 1,
+        "x": 750,
+        "y": 300,
+        "wires": [
+            [
+                "cf91bcea.42864"
+            ]
+        ]
+    },
+    {
+        "id": "da42ba83.1005a8",
+        "type": "debug",
+        "z": "45844da4ef8c7843",
+        "name": "CSV 처리 결과",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d00e657a.ad4008",
+        "type": "debug",
+        "z": "45844da4ef8c7843",
+        "name": "txt로드 결과",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 360,
+        "wires": []
+    }
+]

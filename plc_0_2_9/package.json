@@ -1,0 +1,12 @@
+{
+    "name": "plc_0_2_9",
+    "description": "타이머 값 읽어오기",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}

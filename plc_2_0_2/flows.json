@@ -1,0 +1,378 @@
+[
+    {
+        "id": "beb51490f2b3b4a7",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d5f29ce7.b25db",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM4",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "newline": "300",
+        "bin": "false",
+        "out": "time",
+        "addchar": "false",
+        "responsetimeout": "1000"
+    },
+    {
+        "id": "458ecdd8.73b324",
+        "type": "ui_group",
+        "name": "PLC Testing",
+        "tab": "f02856cc.aae528",
+        "order": 1,
+        "disp": true,
+        "width": "9",
+        "collapse": false
+    },
+    {
+        "id": "9b80aabd.b7ef88",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM4",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "false",
+        "responsetimeout": "1000"
+    },
+    {
+        "id": "f02856cc.aae528",
+        "type": "ui_tab",
+        "name": "Tab",
+        "icon": "dashboard",
+        "order": 0
+    },
+    {
+        "id": "166b218ec03bf551",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "10a1e5bd.d37d4a",
+        "type": "function",
+        "z": "beb51490f2b3b4a7",
+        "name": "read",
+        "func": "msg.payload='\\u0005'+\"00RSS0104%MW0\"+'\\u0004';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 220,
+        "wires": [
+            [
+                "66237d47.7aa9e4"
+            ]
+        ]
+    },
+    {
+        "id": "66237d47.7aa9e4",
+        "type": "serial request",
+        "z": "beb51490f2b3b4a7",
+        "name": "",
+        "serial": "d5f29ce7.b25db",
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "9acfbfcb.60f34"
+            ]
+        ]
+    },
+    {
+        "id": "bd1d0d97.823f5",
+        "type": "function",
+        "z": "beb51490f2b3b4a7",
+        "name": "write",
+        "func": "msg.payload='\\u0005'+\"00WSS0104%MW00001\"+'\\u0004';  \nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 180,
+        "wires": [
+            [
+                "f0a2bb62.d8ec38",
+                "076f219c2207b9ee"
+            ]
+        ]
+    },
+    {
+        "id": "c2af6c33.60333",
+        "type": "inject",
+        "z": "beb51490f2b3b4a7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 220,
+        "wires": [
+            [
+                "10a1e5bd.d37d4a"
+            ]
+        ]
+    },
+    {
+        "id": "9acfbfcb.60f34",
+        "type": "debug",
+        "z": "beb51490f2b3b4a7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "db09e306.f72ff",
+        "type": "debug",
+        "z": "beb51490f2b3b4a7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1050,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f0a2bb62.d8ec38",
+        "type": "serial request",
+        "z": "beb51490f2b3b4a7",
+        "name": "",
+        "serial": "d5f29ce7.b25db",
+        "x": 990,
+        "y": 220,
+        "wires": [
+            [
+                "db09e306.f72ff"
+            ]
+        ]
+    },
+    {
+        "id": "22c6a8a4eb1e9912",
+        "type": "comment",
+        "z": "beb51490f2b3b4a7",
+        "name": "LS SERIAL프로토콜 WRITE",
+        "info": "ENQ 국번 WSS 블록수 변수길이 변수이름 데이터 EOT",
+        "x": 520,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "85b9b9ac04dca8f6",
+        "type": "comment",
+        "z": "beb51490f2b3b4a7",
+        "name": "LS SERIAL프로토콜 READ",
+        "info": "ENQ 국번 RSS 블록수 변수길이 변수이름 EOT",
+        "x": 130,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "076f219c2207b9ee",
+        "type": "delay",
+        "z": "beb51490f2b3b4a7",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 720,
+        "y": 300,
+        "wires": [
+            [
+                "8f43c0471711e40c"
+            ]
+        ]
+    },
+    {
+        "id": "8f43c0471711e40c",
+        "type": "function",
+        "z": "beb51490f2b3b4a7",
+        "name": "write",
+        "func": "msg.payload='\\u0005'+\"00WSS0104%MW00000\"+'\\u0004';  \nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 300,
+        "wires": [
+            [
+                "f0a2bb62.d8ec38"
+            ]
+        ]
+    },
+    {
+        "id": "39f8c56b9ccb015c",
+        "type": "inject",
+        "z": "beb51490f2b3b4a7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "bd1d0d97.823f5"
+            ]
+        ]
+    }
+]

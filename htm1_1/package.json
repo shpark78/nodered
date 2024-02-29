@@ -1,0 +1,12 @@
+{
+    "name": "htm1_1",
+    "description": "html 통신테스트",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}

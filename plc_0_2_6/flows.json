@@ -1,0 +1,167 @@
+[
+    {
+        "id": "4cdf9272a8f0515e",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2c1ed0e2e3ea01ed",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "ff08d74daa9f16bd",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "2c1ed0e2e3ea01ed",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "07c8ad39cd5dbe8b",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM4",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "57070d719a3ad0e7",
+        "type": "function",
+        "z": "4cdf9272a8f0515e",
+        "name": "led_on/off",
+        "func": "var dec = msg.payload.charAt(13);\nmsg.color = (dec === \"1\")?\"lime\":\"gray\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 300,
+        "wires": [
+            [
+                "ea103006b7333cbe",
+                "4f7b7b5424c8ccae"
+            ]
+        ]
+    },
+    {
+        "id": "ea103006b7333cbe",
+        "type": "ui_template",
+        "z": "4cdf9272a8f0515e",
+        "group": "ff08d74daa9f16bd",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<svg width=\"100\" height=\"80\">\n    <circle id=\"circle1\" cx=\"20\" cy=\"20\" r=\"20\"\n        style=\"stroke:none; fill: {{msg.color}};\"/>\n</svg>        ",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 740,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b727247a713012d4",
+        "type": "function",
+        "z": "4cdf9272a8f0515e",
+        "name": "function 1",
+        "func": "msg.payload='\\u0005'+\"00RSS0104%MW0\"+'\\u0004'+'\\u000A'+'\\u000A'\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 300,
+        "wires": [
+            [
+                "fc20d76a9a2da506"
+            ]
+        ]
+    },
+    {
+        "id": "fc20d76a9a2da506",
+        "type": "serial request",
+        "z": "4cdf9272a8f0515e",
+        "name": "",
+        "serial": "07c8ad39cd5dbe8b",
+        "x": 430,
+        "y": 300,
+        "wires": [
+            [
+                "57070d719a3ad0e7"
+            ]
+        ]
+    },
+    {
+        "id": "33d339b4062d0271",
+        "type": "inject",
+        "z": "4cdf9272a8f0515e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 300,
+        "wires": [
+            [
+                "b727247a713012d4"
+            ]
+        ]
+    },
+    {
+        "id": "4f7b7b5424c8ccae",
+        "type": "debug",
+        "z": "4cdf9272a8f0515e",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 360,
+        "wires": []
+    }
+]

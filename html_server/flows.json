@@ -1,0 +1,364 @@
+[
+    {
+        "id": "8dd38af57a9db794",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7bfe0d4f.495ff4",
+        "type": "comment",
+        "z": "8dd38af57a9db794",
+        "name": "8.7 Web Service 만들기",
+        "info": "",
+        "x": 160,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "5dfa0e13.ffb73",
+        "type": "http in",
+        "z": "8dd38af57a9db794",
+        "name": "",
+        "url": "/home",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "15d066cf.eb7009"
+            ]
+        ]
+    },
+    {
+        "id": "15d066cf.eb7009",
+        "type": "template",
+        "z": "8dd38af57a9db794",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html>\n<body>\n\n<h1>Node-RED 홈페이지 입니다.</h1>\n\n</body>\n</html>",
+        "output": "str",
+        "x": 380,
+        "y": 180,
+        "wires": [
+            [
+                "8ca0cb89.886db8"
+            ]
+        ]
+    },
+    {
+        "id": "8ca0cb89.886db8",
+        "type": "http response",
+        "z": "8dd38af57a9db794",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 550,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "db93a885.eaff08",
+        "type": "comment",
+        "z": "8dd38af57a9db794",
+        "name": "홈페이지 구현",
+        "info": "",
+        "x": 190,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "6eeddc65.1022e4",
+        "type": "http in",
+        "z": "8dd38af57a9db794",
+        "name": "",
+        "url": "/home2",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 340,
+        "wires": [
+            [
+                "e737b24e.1ea69"
+            ]
+        ]
+    },
+    {
+        "id": "e737b24e.1ea69",
+        "type": "template",
+        "z": "8dd38af57a9db794",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html>\n<body>\n\n<h1>나의 첫번째 Node-RED 홈페이지 입니다.</h1>\n<p><a href=\"/login\">로그인 하기</a></p>\n\n</body>\n</html>",
+        "output": "str",
+        "x": 380,
+        "y": 340,
+        "wires": [
+            [
+                "a5df0458.647e38"
+            ]
+        ]
+    },
+    {
+        "id": "a5df0458.647e38",
+        "type": "http response",
+        "z": "8dd38af57a9db794",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 550,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "52f6490.8ab81b8",
+        "type": "comment",
+        "z": "8dd38af57a9db794",
+        "name": "홈페이지 구현①",
+        "info": "",
+        "x": 200,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b24d06c7.e87398",
+        "type": "http in",
+        "z": "8dd38af57a9db794",
+        "name": "",
+        "url": "/login_check",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 700,
+        "wires": [
+            [
+                "e92bd91f.a9e0f8"
+            ]
+        ]
+    },
+    {
+        "id": "e92bd91f.a9e0f8",
+        "type": "function",
+        "z": "8dd38af57a9db794",
+        "name": "",
+        "func": "if( msg.payload.id == \"aaa\" && msg.payload.pwd == \"bbb\" ){\n    msg.payload.result = 1;\n}else{\n    msg.payload.result = 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 380,
+        "y": 700,
+        "wires": [
+            [
+                "d91cfb05.1af5a8",
+                "d0e367c1.d7d878"
+            ]
+        ]
+    },
+    {
+        "id": "d91cfb05.1af5a8",
+        "type": "debug",
+        "z": "8dd38af57a9db794",
+        "name": "MSG2 : Complete msg object",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "d0e367c1.d7d878",
+        "type": "switch",
+        "z": "8dd38af57a9db794",
+        "name": "",
+        "property": "payload.result",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 700,
+        "wires": [
+            [
+                "f6d223fe.64a5c"
+            ],
+            [
+                "cac8f3da.28809"
+            ]
+        ]
+    },
+    {
+        "id": "f6d223fe.64a5c",
+        "type": "template",
+        "z": "8dd38af57a9db794",
+        "name": "로그인 성공 화면③",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html>\n<body>\n\n<h1>방문을 환영 합니다.</h1>\n<p>입력하신 아이디는 {{payload.id}} 입니다.</p>\n<p><a href=\"/home2\">홈으로 가기</a></p>\n</body>\n</html>",
+        "output": "str",
+        "x": 710,
+        "y": 660,
+        "wires": [
+            [
+                "9becc950.5021d8"
+            ]
+        ]
+    },
+    {
+        "id": "cac8f3da.28809",
+        "type": "template",
+        "z": "8dd38af57a9db794",
+        "name": "로그인 실패 화면④",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html>\n<body>\n\n<h1>일치하는 정보가 없습니다.</h1>\n<p><a href=\"/home2\">홈으로 가기</a></p>\n</body>\n</html>",
+        "output": "str",
+        "x": 710,
+        "y": 740,
+        "wires": [
+            [
+                "9becc950.5021d8"
+            ]
+        ]
+    },
+    {
+        "id": "9becc950.5021d8",
+        "type": "http response",
+        "z": "8dd38af57a9db794",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 910,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "4347a025.841c6",
+        "type": "comment",
+        "z": "8dd38af57a9db794",
+        "name": "↑ ID : aaa, PWD : bbb 입력값을 검증",
+        "info": "",
+        "x": 420,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "2a044fe6.34914",
+        "type": "comment",
+        "z": "8dd38af57a9db794",
+        "name": "로그인 결과 화면③④",
+        "info": "",
+        "x": 220,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "f168c982.67f478",
+        "type": "http in",
+        "z": "8dd38af57a9db794",
+        "name": "",
+        "url": "/login",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 520,
+        "wires": [
+            [
+                "9df23c6.e57eec",
+                "dcb3b448.2b90e8"
+            ]
+        ]
+    },
+    {
+        "id": "9df23c6.e57eec",
+        "type": "debug",
+        "z": "8dd38af57a9db794",
+        "name": "MSG1 : Complete msg object",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "dcb3b448.2b90e8",
+        "type": "template",
+        "z": "8dd38af57a9db794",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html>\n<body>\n<h2>로그인</h2>\n<form action=\"/login_check\">\n  아이디<br>\n  <input type=\"text\" id=\"id\" name=\"id\"><br>\n  비밀번호<br>\n  <input type=\"password\" id=\"pwd\" name=\"pwd\"><br>\n  <input type=\"submit\" value=\"전송\">\n</form> \n</body>\n</html>\n",
+        "output": "str",
+        "x": 380,
+        "y": 540,
+        "wires": [
+            [
+                "2ecf45f8.18a2aa"
+            ]
+        ]
+    },
+    {
+        "id": "2ecf45f8.18a2aa",
+        "type": "http response",
+        "z": "8dd38af57a9db794",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 530,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "e9b8d837.9ee898",
+        "type": "comment",
+        "z": "8dd38af57a9db794",
+        "name": "로그인 페이지 구현②",
+        "info": "",
+        "x": 220,
+        "y": 440,
+        "wires": []
+    }
+]
